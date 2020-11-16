@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //Material components
 import Grid from '@material-ui/core/Grid';
@@ -116,6 +117,20 @@ const Rating = (props) => {
 			}
 		</Grid>
 	);
+}
+
+Rating.propTypes = {
+	isBig: PropTypes.bool,
+	interactive: PropTypes.bool,
+	handlRate: function (props, propName) {
+		if (props['interactive'] === true && (props[propName] === undefined || typeof(props[propName]) !== 'function')) 
+			return new Error("Please provide a handleRate function!");
+		if (props[propName] && typeof(props[propName]) !== 'function')
+			return new Error("handleRate should be a function!");
+		if (!props['interactive'] && props[propName])
+			return new Error("Component should be interactive, for the handleRate to take effect!");
+	},
+	value: PropTypes.number
 }
 
 export default Rating;
