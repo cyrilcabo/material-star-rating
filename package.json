@@ -1,6 +1,6 @@
 {
   "name": "material-star-rating",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A star-rating component for React with Material-UI",
   "main": "./lib/index.js",
   "scripts": {
