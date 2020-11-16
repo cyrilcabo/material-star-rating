@@ -128,7 +128,7 @@ Rating.propTypes = {
 			return new Error("interactive should be a boolean!");
 	},
 	handlRate: function (props, propName) {
-		if (props['interactive'] === true && (typeof(props[propName]) === 'undefined' || typeof(props[propName]) !== 'function')) 
+		if (props['interactive'] === true && (typeof(props[propName]) === 'undefined')) 
 			return new Error("Please provide a handleRate function!");
 		if (!!props[propName] && typeof(props[propName]) !== 'function')
 			return new Error("handleRate should be a function!");
