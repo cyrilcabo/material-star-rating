@@ -122,13 +122,13 @@ const Rating = (props) => {
 Rating.propTypes = {
 	isBig: PropTypes.bool,
 	interactive: function (props, propName) {
-		if (!!props['handleRate'] && (typeof(props[propName]) === 'undefined' || !props[propName] || typeof(props[propName]) !== 'boolean'))
+		if (!!props['handleRate'] && (!props[propName] || typeof(props[propName]) !== 'boolean'))
 			return new Error("Component should be interactive, for the handleRate to take effect!");
 		if (typeof(props[propName]) !== 'undefined' && typeof(props[propName]) !== 'boolean')
 			return new Error("interactive should be a boolean!");
 	},
 	handlRate: function (props, propName) {
-		if (props['interactive'] === true && (typeof(props[propName]) === 'undefined')) 
+		if (props['interactive'] === true && typeof(props[propName]) !== 'function') 
 			return new Error("Please provide a handleRate function!");
 		if (!!props[propName] && typeof(props[propName]) !== 'function')
 			return new Error("handleRate should be a function!");
