@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 //SVG
 import Star from './utils/star';
+import SVGDefs from './utils/svgdefs';
 
 //Utility
 import compute from './utils/compute';
@@ -108,6 +109,7 @@ const Rating = (props) => {
 
 	return (
 		<Grid item className={classes.root}>
+			<SVGDefs />
 			{stars}
 			{isView
 				?<Grid item>
